@@ -4,21 +4,33 @@
     import AppTvGrid from './components/AppTvGrid.vue'
     import { store } from './store.js'
     import axios from 'axios'
+    import AppHero from './components/AppHero.vue'
 
     export default {
         components: {
             AppHeader,
             AppMoviesGrid,
-            AppTvGrid
+            AppTvGrid,
+            AppHero
         },
 
         data() {
             return {
-                store
+                store,
+                isShowed: true,
             }
         },
 
         methods: {
+
+            searchResult() {
+                if(store.querySearched !== '') {
+                    this.isShowed = false
+                } else {
+                    this.isShowed = true
+                }
+            },
+
             getMoviesFromApi() {
 
                 const queryParams = {
@@ -56,7 +68,8 @@
         },
         mounted() {
             this.getMoviesFromApi(),
-            this.getTvSeriesFromApi()
+            this.getTvSeriesFromApi(),
+            this.searchResult()
         }
     }
 
@@ -65,10 +78,17 @@
 
 <template>
 
-    <AppHeader @fireResults="getMoviesFromApi(); getTvSeriesFromApi()" ></AppHeader>
+    <AppHeader 
+    @fireResults="getMoviesFromApi(); getTvSeriesFromApi(); searchResult()" 
+    @enterResult="getMoviesFromApi(); getTvSeriesFromApi(); searchResult()"></AppHeader>
     <main>
-        <AppMoviesGrid></AppMoviesGrid>
-        <AppTvGrid></AppTvGrid>
+
+        <AppHero v-if="isShowed"></AppHero>
+        <div v-else-if="!isShowed">
+            <AppMoviesGrid></AppMoviesGrid>
+            <AppTvGrid></AppTvGrid>
+        </div>
+        
     </main>
 
 </template>

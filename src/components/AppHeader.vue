@@ -20,7 +20,7 @@
                 <h1>BoolFlix</h1>
             </div>
             <div class="row">
-                <input v-model="store.querySearched" type="text">
+                <input v-model="store.querySearched" type="text" @keyup.enter="$emit('enterResult')" >
                 <button @click="$emit('fireResults')">Cerca</button>
             </div>
         </div>
@@ -66,6 +66,13 @@
                 background-color: #ccc;
                 font-family: "Sen", sans-serif;
                 font-size: 16px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #ddd;
+                    border: 1px solid #ddd;
+
+                }
         }
         }
 
