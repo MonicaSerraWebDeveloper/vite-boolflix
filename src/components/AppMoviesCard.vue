@@ -21,7 +21,14 @@
                 }
             },
 
-           
+            getStarsVote() {
+                const voteInStars = Math.ceil(moviesList.vote_average / 2)
+                return voteInStars
+            },
+
+            getEmptyStars() {
+                return 5 - (Math.ceil(moviesList.vote_average / 2))
+            }
         }
     }
 
@@ -39,8 +46,12 @@
             <h3>{{ moviesList.title }}</h3>
             <h3>{{ moviesList.original_title }}</h3>
             <div>
-                <img :src="getFlags()" v-if="getFlags()" alt="">
+                <img :src="getFlags()" v-if="getFlags()" :alt="moviesList.original_language">
                 <div v-else>{{ moviesList.original_language }}</div>
+            </div>
+            <div class="stars-cotnainer">
+                <i v-for="star in Math.ceil(moviesList.vote_average / 2)" class="fa-solid fa-star"></i>
+                <i v-for="emptyStar in 5 - Math.ceil(moviesList.vote_average / 2)" class="fa-regular fa-star"></i>
             </div>
             <div>{{ Math.ceil(moviesList.vote_average) }}</div>
         </div>
@@ -57,6 +68,7 @@
         align-items: center;
         text-align: center;
         width: calc((100% / 5) - 10px);
+        cursor: pointer;
 
         .cover-movie {
             width: 100%;
@@ -69,6 +81,10 @@
             padding: 10px;
             img {
                 width: 20px;
+            }
+
+            i {
+                color: gold; 
             }
         }
 

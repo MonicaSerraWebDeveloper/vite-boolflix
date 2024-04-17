@@ -37,7 +37,7 @@
             <h3>{{ tvList.name}}</h3>
             <h3>{{ tvList.original_name }}</h3>
             <div>
-                <img :src="getFlags()" v-if="getFlags()" alt="">
+                <img :src="getFlags()" v-if="getFlags()" :alt="tvList.original_language">
                 <div v-else>{{ tvList.original_language }}</div>
             </div>
             <div>{{ Math.ceil(tvList.vote_average) }}</div>
@@ -56,6 +56,7 @@
         align-items: center;
         text-align: center;
         width: calc((100% / 5) - 10px);
+        cursor: pointer;
 
         .cover-tv {
             width: 100%;
