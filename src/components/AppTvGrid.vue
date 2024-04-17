@@ -13,8 +13,12 @@
 
 <template>
 
-    <h1>Grid TV Series</h1>
-    <AppTvCard></AppTvCard>
+    <div class="container">
+        <div class="row">
+            <AppTvCard></AppTvCard>
+        </div>
+    </div>
+    
 
 
 </template>

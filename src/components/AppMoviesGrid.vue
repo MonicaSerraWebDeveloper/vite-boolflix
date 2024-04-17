@@ -13,10 +13,12 @@
 
 <template>
 
-    <h1>Grid Movies</h1>
-    <AppMoviesCard></AppMoviesCard>
-
-
+    <div class="container">
+        <div class="row">
+            <AppMoviesCard></AppMoviesCard>
+        </div>
+    </div>
+    
 </template>
 
 <style scoped lang="scss">
