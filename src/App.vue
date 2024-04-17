@@ -22,12 +22,11 @@
             getMoviesFromApi() {
                 const queryParams = {
                     api_key: 'e95f337e5ac359a9815573d658c29bd6',
-                    query: 'taylor'
                 };
 
-                // if(store.querySearched !== '') {
-                //     queryParams.query = store.querySearched
-                // }
+                if(store.querySearched !== '') {
+                    queryParams.query = store.querySearched
+                }
 
                 axios.get('https://api.themoviedb.org/3/search/movie', {
                     params: queryParams
@@ -48,7 +47,7 @@
 
 <template>
 
-    <AppHeader @fireResults="console.log('monica')"></AppHeader>
+    <AppHeader @fireResults="console.log(getMoviesFromApi())"></AppHeader>
     <main>
         <AppMoviesGrid></AppMoviesGrid>
         <AppTvGrid></AppTvGrid>
