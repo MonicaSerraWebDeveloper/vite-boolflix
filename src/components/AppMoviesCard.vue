@@ -33,7 +33,8 @@
         class="cover-movie" 
         :src="'https://image.tmdb.org/t/p/w342' + moviesList.poster_path" 
         v-if="moviesList.poster_path" 
-        :alt="moviesList.title">
+        :alt="moviesList.title"
+        >
         <div class="info-container">
             <h3>{{ moviesList.title }}</h3>
             <h3>{{ moviesList.original_title }}</h3>

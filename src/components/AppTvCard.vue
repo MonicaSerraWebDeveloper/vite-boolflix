@@ -27,7 +27,12 @@
 <template>
 
     <div class="container-card-tv">
-        <div class="image-placeholder"></div>
+        <img 
+        class="cover-tv" 
+        :src="'https://image.tmdb.org/t/p/w342' + tvList.poster_path" 
+        v-if="tvList.poster_path" 
+        :alt="tvList.title"
+        >
         <div class="info-container">
             <h3>{{ tvList.name}}</h3>
             <h3>{{ tvList.original_name }}</h3>
@@ -50,14 +55,15 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 20px;
         width: calc((100% / 5) - 10px);
 
-            .image-placeholder {
+        .cover-tv {
             width: 100%;
-            height: 120px;
-            border: 2px solid pink;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
         }
+
         .info-container {
             img {
                 width: 20px;
