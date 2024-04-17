@@ -40,7 +40,10 @@
                 <img :src="getFlags()" v-if="getFlags()" :alt="tvList.original_language">
                 <div v-else>{{ tvList.original_language }}</div>
             </div>
-            <div>{{ Math.ceil(tvList.vote_average) }}</div>
+            <div class="stars-cotnainer">
+                <i v-for="star in Math.ceil(tvList.vote_average / 2)" class="fa-solid fa-star"></i>
+                <i v-for="emptyStar in 5 - Math.ceil(tvList.vote_average / 2)" class="fa-regular fa-star"></i>
+            </div>
         </div>
     </div>
 
@@ -66,8 +69,14 @@
         }
 
         .info-container {
+            padding: 10px;
+
             img {
                 width: 20px;
+            }
+
+            i {
+                color: gold;
             }
         }
     }

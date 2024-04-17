@@ -53,7 +53,6 @@
                 <i v-for="star in Math.ceil(moviesList.vote_average / 2)" class="fa-solid fa-star"></i>
                 <i v-for="emptyStar in 5 - Math.ceil(moviesList.vote_average / 2)" class="fa-regular fa-star"></i>
             </div>
-            <div>{{ Math.ceil(moviesList.vote_average) }}</div>
         </div>
     </div>
 
