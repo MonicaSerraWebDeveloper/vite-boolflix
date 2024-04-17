@@ -1,17 +1,9 @@
 <script>
 
-    import { store } from '../store.js'
-
     export default {
         name: 'AppMoviesCard',
         props: {
             moviesList: Object
-        },
-
-        data() {
-            return {
-                store,
-            }
         },
 
         methods: {
