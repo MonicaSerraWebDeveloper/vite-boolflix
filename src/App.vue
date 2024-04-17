@@ -75,6 +75,10 @@
 
 <style lang="scss">
 
-    @use './style/generic'
+    @use './style/generic';
+
+    main {
+        padding-bottom: 100px;
+    }
 
 </style>

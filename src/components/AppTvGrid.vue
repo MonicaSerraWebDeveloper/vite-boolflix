@@ -42,6 +42,11 @@
     .title-container {
         display: flex;
         justify-content: center;
+        padding: 50px 0;
+
+            h2 {
+            font-size: 40px;
+        }
     }
 
     .row {
