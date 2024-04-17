@@ -20,6 +20,9 @@
 <template>
 
     <div class="container">
+        <div class="title-container">
+            <h2>Movies</h2>
+        </div>
         <div class="row">
             <AppMoviesCard 
             v-for="movie in store.moviesFound" 
@@ -32,6 +35,11 @@
 </template>
 
 <style scoped lang="scss">
+
+    .title-container {
+        display: flex;
+        justify-content: center;
+    }
 
     .row {
         flex-wrap: wrap;

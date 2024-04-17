@@ -20,6 +20,7 @@
 
         methods: {
             getMoviesFromApi() {
+
                 const queryParams = {
                     api_key: 'e95f337e5ac359a9815573d658c29bd6',
                 };
@@ -31,14 +32,31 @@
                 axios.get('https://api.themoviedb.org/3/search/movie', {
                     params: queryParams
                 }).then((response) => {
-                    store.moviesFound = response.data.results
+                    store.moviesFound = response.data.results                    
+                })
+            },
+
+            getTvSeriesFromApi() {
+
+                const queryParamsTv = {
+                    api_key: 'e95f337e5ac359a9815573d658c29bd6',
+                }
+
+                if(store.querySearched !== '') {
+                    queryParamsTv.query = store.querySearched
+                }
+
+                axios.get('https://api.themoviedb.org/3/search/tv', {
+                    params: queryParamsTv
+                }).then((response) => {
+                    store.tvFound = response.data.results
                     console.log(response.data.results);
-                    
                 })
             }
         },
         mounted() {
-            this.getMoviesFromApi()
+            this.getMoviesFromApi(),
+            this.getTvSeriesFromApi()
         }
     }
 
@@ -47,7 +65,7 @@
 
 <template>
 
-    <AppHeader @fireResults="console.log(getMoviesFromApi())"></AppHeader>
+    <AppHeader @fireResults="getMoviesFromApi(); getTvSeriesFromApi()" ></AppHeader>
     <main>
         <AppMoviesGrid></AppMoviesGrid>
         <AppTvGrid></AppTvGrid>
