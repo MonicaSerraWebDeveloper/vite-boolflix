@@ -13,7 +13,8 @@
             return {
                 store
             }
-        }
+        },
+
     }
 
 </script>

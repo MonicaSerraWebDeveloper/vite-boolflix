@@ -4,6 +4,21 @@
         name: 'AppTvCard',
         props: {
             tvList: Object
+        },
+
+        methods: {
+            getFlags() {
+
+            if(this.tvList.original_language === 'en') {
+                return new URL(`../assets/flag/uk-flag.png`, import.meta.url).href
+            } else if (this.tvList.original_language === 'it') {
+                return new URL(`../assets/flag/ita-flag.png`, import.meta.url).href
+            } else if (this.tvList.original_language === 'fr') {
+                return new URL(`../assets/flag/france-flag.png`, import.meta.url).href
+            } else if (this.tvList.original_language === 'es') {
+                return new URL(`../assets/flag/spain-flag.png`, import.meta.url).href
+            }
+            }
         }
     }
 
@@ -16,7 +31,10 @@
         <div class="info-container">
             <h3>{{ tvList.name}}</h3>
             <h3>{{ tvList.original_name }}</h3>
-            <div>{{ tvList.original_language }}</div>
+            <div>
+                <img :src="getFlags()" v-if="getFlags()" alt="">
+                <div v-else>{{ tvList.original_language }}</div>
+            </div>
             <div>{{ Math.ceil(tvList.vote_average) }}</div>
         </div>
     </div>
@@ -39,6 +57,11 @@
             width: 100%;
             height: 120px;
             border: 2px solid pink;
+        }
+        .info-container {
+            img {
+                width: 20px;
+            }
         }
     }
 

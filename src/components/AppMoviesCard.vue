@@ -11,21 +11,6 @@
         data() {
             return {
                 store,
-
-                    flags: [
-                    {
-                        ita: '/ita-flag.png'
-                    },
-                    {
-                        france: '/france-flag.png'
-                    },
-                    {
-                        spain: '/spain-flag.png'
-                    },
-                    {
-                        uk: '/uk-flag.png'
-                    }
-                ]
             }
         },
 
@@ -55,9 +40,7 @@
             <h3>{{ moviesList.title }}</h3>
             <h3>{{ moviesList.original_title }}</h3>
             <div>
-                
                 <img :src="getFlags()" v-if="getFlags()" alt="">
-                
                 <div v-else>{{ moviesList.original_language }}</div>
             </div>
             <div>{{ Math.ceil(moviesList.vote_average) }}</div>
