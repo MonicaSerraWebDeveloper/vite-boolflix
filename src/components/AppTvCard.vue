@@ -26,7 +26,7 @@
 <style scoped lang="scss">
 
     .container-card-tv {
-        border: 2px solid green;
+        border: 2px solid blue;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -38,7 +38,7 @@
             .image-placeholder {
             width: 100%;
             height: 120px;
-            border: 2px solid red;
+            border: 2px solid pink;
         }
     }
 

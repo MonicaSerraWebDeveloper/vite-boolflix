@@ -10,7 +10,38 @@
 
         data() {
             return {
-                store
+                store,
+
+                    flags: [
+                    {
+                        ita: '/ita-flag.png'
+                    },
+                    {
+                        france: '/france-flag.png'
+                    },
+                    {
+                        spain: '/spain-flag.png'
+                    },
+                    {
+                        uk: '/uk-flag.png'
+                    }
+                ]
+            }
+        },
+
+        methods: {
+
+            getFlags() {
+
+                if(this.moviesList.original_language === 'en') {
+                    return new URL(`../assets/flag/uk-flag.png`, import.meta.url).href
+                } else if (this.moviesList.original_language === 'it') {
+                    return new URL(`../assets/flag/ita-flag.png`, import.meta.url).href
+                } else if (this.moviesList.original_language === 'fr') {
+                    return new URL(`../assets/flag/france-flag.png`, import.meta.url).href
+                } else if (this.moviesList.original_language === 'es') {
+                    return new URL(`../assets/flag/spain-flag.png`, import.meta.url).href
+                }
             }
         }
     }
@@ -23,7 +54,12 @@
         <div class="info-container">
             <h3>{{ moviesList.title }}</h3>
             <h3>{{ moviesList.original_title }}</h3>
-            <div>{{ moviesList.original_language }}</div>
+            <div>
+                
+                <img :src="getFlags()" v-if="getFlags()" alt="">
+                
+                <div v-else>{{ moviesList.original_language }}</div>
+            </div>
             <div>{{ Math.ceil(moviesList.vote_average) }}</div>
         </div>
     </div>
@@ -45,7 +81,13 @@
         width: 100%;
         height: 120px;
         border: 2px solid red;
-    }
+        }
+
+        .info-container {
+            img {
+                width: 20px;
+            }
+        }
 
     }
 
