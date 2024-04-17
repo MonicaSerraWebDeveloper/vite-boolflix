@@ -2,9 +2,9 @@
     import AppHeader from './components/AppHeader.vue'
     import AppMoviesGrid from './components/AppMoviesGrid.vue'
     import AppTvGrid from './components/AppTvGrid.vue'
+    import AppHero from './components/AppHero.vue'
     import { store } from './store.js'
     import axios from 'axios'
-    import AppHero from './components/AppHero.vue'
 
     export default {
         components: {
