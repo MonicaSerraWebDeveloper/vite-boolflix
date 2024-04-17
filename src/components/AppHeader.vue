@@ -41,6 +41,7 @@
 
             h1 {
                 color: red;
+                font-size: 60px;
             }
         }
 
