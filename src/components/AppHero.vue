@@ -10,7 +10,7 @@
 
     <div class="container">
         <div class="row">
-            <h2>Cerca un film o una Serie...</h2>
+            <h2>Cerca un Film o una Serie...</h2>
         </div>
     </div>
 

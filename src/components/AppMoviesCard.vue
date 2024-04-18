@@ -56,7 +56,6 @@
                     <i v-for="star in Math.ceil(moviesList.vote_average / 2)" class="fa-solid fa-star"></i>
                     <i v-for="emptyStar in 5 - Math.ceil(moviesList.vote_average / 2)" class="fa-regular fa-star"></i>
                 </div>
-            
             </div>
         </div>
 
@@ -94,7 +93,6 @@
         justify-content: center;
         align-items: center;
         text-align: left;
-        line-height: 30px;
         background-color: #000;
         width: 100%;
         height: 100%;
@@ -115,7 +113,12 @@
         }
 
         .info-container {
-            padding: 10px;
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
 
             img {
                 width: 20px;

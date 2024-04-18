@@ -79,7 +79,6 @@
         justify-content: center;
         align-items: center;
         text-align: left;
-        line-height: 30px;
         background-color: #000;
         width: 100%;
         height: 100%;
@@ -100,7 +99,12 @@
         }
 
         .info-container {
-            padding: 10px;
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
 
             img {
                 width: 20px;
