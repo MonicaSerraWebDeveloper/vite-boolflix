@@ -21,14 +21,6 @@
                 }
             },
 
-            getStarsVote() {
-                const voteInStars = Math.ceil(moviesList.vote_average / 2)
-                return voteInStars
-            },
-
-            getEmptyStars() {
-                return 5 - (Math.ceil(moviesList.vote_average / 2))
-            }
         }
     }
 
