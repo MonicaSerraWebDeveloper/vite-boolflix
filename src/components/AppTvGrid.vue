@@ -23,7 +23,7 @@
 
     <div class="container">
         <div class="title-container">
-            <h2>Tv Series</h2>
+            <h2 v-if="store.tvFound.length !== 0">Tv Series</h2>
         </div>
         <div class="row">
             <AppTvCard 

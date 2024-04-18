@@ -21,7 +21,7 @@
 
     <div class="container">
         <div class="title-container">
-            <h2>Movies</h2>
+            <h2 v-if="store.moviesFound.length !== 0">Movies</h2>
         </div>
         <div class="row">
             <AppMoviesCard 
