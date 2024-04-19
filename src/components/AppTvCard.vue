@@ -6,21 +6,26 @@
             tvList: Object
         },
 
+        data() {
+            return {
+                flags: [
+                    'it',
+                    'en',
+                    'es',
+                    'fr'
+                ]
+            }
+        },
+
         methods: {
             getFlags() {
 
-            if(this.tvList.original_language === 'en') {
-                return new URL(`../assets/flag/uk-flag.png`, import.meta.url).href
-            } else if (this.tvList.original_language === 'it') {
-                return new URL(`../assets/flag/ita-flag.png`, import.meta.url).href
-            } else if (this.tvList.original_language === 'fr') {
-                return new URL(`../assets/flag/france-flag.png`, import.meta.url).href
-            } else if (this.tvList.original_language === 'es') {
-                return new URL(`../assets/flag/spain-flag.png`, import.meta.url).href
-            }
-            }
+            let languageFlag = this.tvList.original_language + '.png'
+            return new URL(`../assets/flag/${languageFlag}`, import.meta.url).href
+
         }
     }
+}
 
 </script>
 
@@ -38,7 +43,10 @@
                 <h3><strong>Titolo:</strong> {{ tvList.name}}</h3>
                 <h3><strong>Titolo Originale:</strong> {{ tvList.original_name }}</h3>
                 <div>
-                    <img :src="getFlags()" v-if="getFlags()" :alt="tvList.original_language">
+                    <img 
+                    :src="getFlags()" 
+                    v-if="flags.includes(tvList.original_language)" 
+                    :alt="tvList.original_language">
                     <div v-else>{{ tvList.original_language }}</div>
                 </div>
                 <div class="stars-cotnainer">

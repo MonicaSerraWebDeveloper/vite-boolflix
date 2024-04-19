@@ -6,19 +6,22 @@
             moviesList: Object
         },
 
+        data() {
+            return {
+                flags: [
+                    'it',
+                    'en',
+                    'es',
+                    'fr'
+                ]
+            }
+        },
+
         methods: {
 
             getFlags() {
-
-                if(this.moviesList.original_language === 'en') {
-                    return new URL(`../assets/flag/uk-flag.png`, import.meta.url).href
-                } else if (this.moviesList.original_language === 'it') {
-                    return new URL(`../assets/flag/ita-flag.png`, import.meta.url).href
-                } else if (this.moviesList.original_language === 'fr') {
-                    return new URL(`../assets/flag/france-flag.png`, import.meta.url).href
-                } else if (this.moviesList.original_language === 'es') {
-                    return new URL(`../assets/flag/spain-flag.png`, import.meta.url).href
-                }
+                let languageFlag = this.moviesList.original_language + '.png'
+                return new URL(`../assets/flag/${languageFlag}`, import.meta.url).href
             },
 
         }
@@ -40,7 +43,10 @@
                 <h3><strong>Titolo:</strong>  {{ moviesList.title }}</h3>
                 <h3><strong>Titolo Originale:</strong> {{ moviesList.original_title }}</h3>
                 <div>
-                    <img :src="getFlags()" v-if="getFlags()" :alt="moviesList.original_language">
+                    <img 
+                    :src="getFlags()" 
+                    v-if="flags.includes(moviesList.original_language)" 
+                    :alt="moviesList.original_language">
                     <div v-else>{{ moviesList.original_language }}</div>
                 </div>
                 <div class="stars-cotnainer">
